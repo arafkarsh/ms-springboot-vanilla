@@ -131,49 +131,49 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
+			<version>2.0.16</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
+			<version>1.5.13</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
 		<dependency>
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
-			<version>${logstash.version}</version>
+			<version>8.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.codehaus.janino/janino -->
 		<dependency>
 			<groupId>org.codehaus.janino</groupId>
 			<artifactId>janino</artifactId>
-			<version>${janino.version}</version>
+			<version>3.1.12</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-core -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-core</artifactId>
-			<version>${micrometer.version}</version>
+			<version>1.14.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
-			<version>${micrometer.version}</version>
+			<version>1.14.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -184,7 +184,7 @@
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-tracing</artifactId>
-			<version>${micrometer.tracing.version}</version>
+			<version>1.4.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing-bridge-otel -->
@@ -223,27 +223,27 @@
 		<dependency>
 			<groupId>jakarta.platform</groupId>
 			<artifactId>jakarta.jakartaee-api</artifactId>
-			<version>${jakarta.ee.version}</version>
+			<version>10.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<version>${jakarta.servlet.version}</version>
+			<version>6.0.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
-			<version>${jakarta.persistence.version}</version>
+			<version>3.1.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>${jakarta.jaxb.version}</version>
+			<version>4.0.2</version>
 		</dependency>
 
 		<!-- To Convert DTO (Records) to Entities - Compile Time Type Safety -->
@@ -251,42 +251,42 @@
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>${mapstruct.version}</version>
+			<version>1.6.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct-processor</artifactId>
-			<version>${mapstruct.version}</version>
+			<version>1.6.2</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>${hibernate.validator.version}</version>
+			<version>8.0.1.Final</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.core.version}</version>
+			<version>6.6.1.Final</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>${postgresql.version}</version>
+			<version>42.7.7</version>
 		</dependency>
 
 		<!-- Replaced by Jakarta Jaxb, But FasterXML still uses Java Jaxb -->
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>${jaxb.version}</version>
+			<version>2.3.1</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -296,56 +296,56 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>${google.guava.version}</version>
+			<version>33.3.1-jre</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
 		<dependency>
 			<groupId>org.apache.httpcomponents.client5</groupId>
 			<artifactId>httpclient5</artifactId>
-			<version>${apache.httpclient}</version>
+			<version>5.5</version>
 		</dependency>
 
 		<!-- Used for StringUtils helper -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${apache.commons.version}</version>
+			<version>3.17.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>${fasterxml.version}</version>
+			<version>2.18.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>${fasterxml.version}</version>
+			<version>2.18.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>${fasterxml.version}</version>
+			<version>2.18.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jdk8 -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jdk8</artifactId>
-			<version>${fasterxml.version}</version>
+			<version>2.18.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.jaxrs</groupId>
 			<artifactId>jackson-jaxrs-json-provider</artifactId>
-			<version>${fasterxml.version}</version>
+			<version>2.18.0</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -356,7 +356,7 @@
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-test</artifactId>
-		    <version>${spring.boot.version}</version>
+		    <version>3.4.6</version>
 		    <scope>test</scope>
 		    <!-- Exclude JUnit as Spring Boot Starter Test uses JUnit 4 -->
 			<exclusions>
@@ -376,7 +376,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-parent</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.1</version>
 			<type>pom</type>
 		</dependency>
 
@@ -384,33 +384,33 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.7</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web-services -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.7</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.7</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
@@ -426,7 +426,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -437,7 +437,7 @@
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
-			<version>${spring.kafka.version}</version>
+			<version>4.0.0-M2</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -448,28 +448,28 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.5.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.1</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -481,7 +481,7 @@
 		<dependency>
 			<groupId>it.ozimov</groupId>
 			<artifactId>embedded-redis</artifactId>
-			<version>${redis.embedded.version}</version>
+			<version>0.7.3</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -496,7 +496,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
+			<version>2.3.232</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -508,20 +508,20 @@
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-api</artifactId>
-			<version>${jwt.api.version}</version>
+			<version>0.12.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-impl</artifactId>
-			<version>${jwt.api.version}</version>
+			<version>0.12.6</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
-			<version>${jwt.api.version}</version>
+			<version>0.12.6</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -529,21 +529,21 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk18on</artifactId>
-			<version>${bouncycastle.version}</version>
+			<version>1.79</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring.security.version}</version>
+			<version>6.4.6</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
+			<version>6.4.6</version>
 		</dependency>
 
 		<!--
@@ -555,14 +555,14 @@
 	   <dependency>
 		   <groupId>org.springframework.boot</groupId>
 		   <artifactId>spring-boot-starter-security</artifactId>
-		   <version>${spring.boot.version}</version>
+		   <version>3.4.6</version>
 	   </dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
 		<dependency>
 			<groupId>com.github.ulisesbocchio</groupId>
 			<artifactId>jasypt-spring-boot-starter</artifactId>
-			<version>${jasypt.springboot.version}</version>
+			<version>3.0.5</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jasypt/jasypt -->
@@ -570,14 +570,14 @@
 		<dependency>
 			<groupId>org.jasypt</groupId>
 			<artifactId>jasypt</artifactId>
-			<version>${jasypt.version}</version>
+			<version>1.9.3</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<version>${spring.boot.version}</version>
+			<version>3.4.7</version>
 		</dependency>
 
 		<!-- ================================================================= -->
@@ -587,7 +587,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>${openapi.webmvc.version}</version>
+			<version>2.8.7</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-common -->
@@ -603,7 +603,7 @@
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-common</artifactId>
-			<version>${openapi.common.version}</version>
+			<version>1.8.0</version>
 		</dependency>
 		<!--
 		<dependency>
