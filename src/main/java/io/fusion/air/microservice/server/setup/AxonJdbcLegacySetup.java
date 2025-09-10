@@ -48,7 +48,7 @@ import org.springframework.transaction.PlatformTransactionManager;
  * @date: 2025-09-09T9:09 PM
  */
 // @Configuration
-public class AxonJdbcConfig {
+public class AxonJdbcLegacySetup {
 
     @Bean
     public TransactionManager axonTransactionManager(PlatformTransactionManager springTx) {
