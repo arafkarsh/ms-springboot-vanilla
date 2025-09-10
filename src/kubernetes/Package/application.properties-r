@@ -1,5 +1,5 @@
-build.number=245
-build.date=Wed Sep 10 13:35:54 IST 2025
+build.number=246
+build.date=Wed Sep 10 14:22:37 IST 2025
 spring.profiles.default=dev
 service.org=arafkarsh
 service.name=MS-Vanilla
