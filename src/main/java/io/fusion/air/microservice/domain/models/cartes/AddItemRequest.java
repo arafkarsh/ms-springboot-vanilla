@@ -25,18 +25,19 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.models.cart;
+package io.fusion.air.microservice.domain.models.cartes;
 
 import java.math.BigDecimal;
 
 /**
- * ms-springboot-vanilla / UpdateItemRequest
+ * ms-springboot-vanilla / AddItemRequest
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:18 PM
+ * @date: 2025-09-10T2:16 PM
  */
-public record UpdateItemRequest(
+public record AddItemRequest(
+        String productId,
         int quantity,
         BigDecimal unitPrice
 ) {}

@@ -29,7 +29,7 @@ CAT --> G: product details
 G --> GUEST: product details
 G -> KAFKA: publish [topic=product.viewed, {sessionId, productId, ts}]
 
-' --- cart ---
+' --- cartes ---
 GUEST -> G: AddToCart(productId, qty)
 G -> CART: addItem(sessionId, productId, qty)
 CART --> G: cartSnapshot

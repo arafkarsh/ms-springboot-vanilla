@@ -25,19 +25,50 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.models.cart;
+package io.fusion.air.microservice.domain.entities.cartes;
 
 import java.math.BigDecimal;
+import jakarta.persistence.*;
 
 /**
- * ms-springboot-vanilla / AddItemRequest
+ * ms-springboot-vanilla / CartItemView
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:16 PM
+ * @date: 2025-09-10T6:45 PM
  */
-public record AddItemRequest(
-        String productId,
-        int quantity,
-        BigDecimal unitPrice
-) {}
+@Entity
+@Table(name = "cart_es_view_items_tx",
+        uniqueConstraints = @UniqueConstraint(name = "uk_cart_item", columnNames = {"cart_id","product_id"}))
+public class CartItemView {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+    @Column(name="cart_id", nullable=false)  private String cartId;
+    @Column(name="product_id", nullable=false) private String productId;
+    private int quantity;
+    private BigDecimal unitPrice;
+    private BigDecimal lineTotal;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public BigDecimal getLineTotal() {
+        return lineTotal;
+    }
+}

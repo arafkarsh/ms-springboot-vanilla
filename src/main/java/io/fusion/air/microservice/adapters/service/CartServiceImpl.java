@@ -164,7 +164,7 @@ public class CartServiceImpl implements CartService {
     @Transactional
     public CartEntity save(CartItem cartItemModel) {
         CartEntity cart = new CartEntity(cartItemModel);
-        meterRegistry.counter("cart.saved", "status", "CartItem Saved!").increment();
+        meterRegistry.counter("cartes.saved", "status", "CartItem Saved!").increment();
         return cartRepository.save(cart);
     }
 

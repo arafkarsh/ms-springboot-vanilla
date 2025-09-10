@@ -25,20 +25,35 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.models.cart;
+package io.fusion.air.microservice.domain.entities.cartes;
+
+import jakarta.persistence.Entity;
 
 import java.math.BigDecimal;
-
+import jakarta.persistence.*;
 /**
- * ms-springboot-vanilla / CartItemDto
+ * ms-springboot-vanilla / CartView
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:19 PM
+ * @date: 2025-09-10T6:41 PM
  */
-public record CartItemDto(
-        String productId,
-        int quantity,
-        BigDecimal unitPrice,
-        BigDecimal lineTotal
-) {}
+@Entity
+@Table(name = "cart_es_view_tx")
+public class CartView {
+    @Id private String cartId;
+    private boolean checkedOut;
+    private BigDecimal total;
+
+    public String getCartId() {
+        return cartId;
+    }
+
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+}

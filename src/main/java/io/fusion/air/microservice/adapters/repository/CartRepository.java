@@ -56,7 +56,7 @@ public interface CartRepository extends JpaRepository<CartEntity, UUID> {
      * @param price
      * @return
      */
-    @Query("SELECT cart FROM CartEntity cart WHERE cart.customerId = :customerId AND cart.price >= :price ")
+    @Query("SELECT cartes FROM CartEntity cartes WHERE cartes.customerId = :customerId AND cartes.price >= :price ")
     public List<CartEntity> fetchProductsByPriceGreaterThan(
             @Param("customerId") String customerId, @Param("price") BigDecimal price);
 
@@ -64,7 +64,7 @@ public interface CartRepository extends JpaRepository<CartEntity, UUID> {
      * Returns Active Products Only
      * @return
      */
-    @Query("SELECT cart FROM CartEntity cart WHERE cart.customerId = :customerId AND cart.isActive = true")
+    @Query("SELECT cartes FROM CartEntity cartes WHERE cartes.customerId = :customerId AND cartes.isActive = true")
     public List<CartEntity> fetchActiveItems(@Param("customerId") String customerId);
 
     /**

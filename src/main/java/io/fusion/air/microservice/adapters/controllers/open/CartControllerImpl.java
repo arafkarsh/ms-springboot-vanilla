@@ -59,8 +59,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 @Validated // This enables validation for method parameters
 @RestController
 // "/ms-vanilla/api/v1"
-@RequestMapping("${service.api.path}/cart")
-@MetricsPath(name = "fusion.air.cart")
+@RequestMapping("${service.api.path}/cartes")
+@MetricsPath(name = "fusion.air.cartes")
 @Tag(name = "CartItem API", description = "CRUD Operations for CartItem, CartItem Items, Add to CartItem, Delete item...")
 public class CartControllerImpl extends AbstractController {
 

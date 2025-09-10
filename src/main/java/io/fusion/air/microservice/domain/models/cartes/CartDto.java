@@ -25,7 +25,7 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.models.cart;
+package io.fusion.air.microservice.domain.models.cartes;
 
 import java.math.BigDecimal;
 import java.util.List;
