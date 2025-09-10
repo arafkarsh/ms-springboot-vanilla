@@ -1,6 +1,7 @@
 #!/bin/sh
 # ============================================================================
-# Export Database 
+# Setup Axon Database 
 # @author: Araf Karsh Hamid, (c) Copyright 2022-25
 # ============================================================================
-pg_dump -U postgres -h localhost -p 5433 -d ms_vanilla_334 -n ms_schema > ms-sb354_new.sql
+psql -h localhost -p 5433 ms_vanilla_334 < es.sql
+psql -h localhost -p 5433 ms_vanilla_334 < es-axon-mss.sql

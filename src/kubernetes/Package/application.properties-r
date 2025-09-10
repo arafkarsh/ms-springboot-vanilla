@@ -1,5 +1,5 @@
-build.number=244
-build.date=Wed Sep 10 12:23:03 IST 2025
+build.number=245
+build.date=Wed Sep 10 13:35:54 IST 2025
 spring.profiles.default=dev
 service.org=arafkarsh
 service.name=MS-Vanilla
@@ -53,6 +53,7 @@ app.property.product.list=/create, /status, /all/secured, /search/product, /sear
 app.property.list=element1, element2, element3
 app.property.map={key1:'val1', key2 : 'val2', key3 : 'val3'}
 axon.axonserver.enabled=false
+axon.jdbc.create-schema=true
 logging.group.tomcat=org.apache.catalina, org.apache.coyote, org.apache.tomcat
 logging.level.org.springframework.boot.web.servlet=INFO
 logging.level.org.springframework.web.servlet.DispatcherServlet=INFO

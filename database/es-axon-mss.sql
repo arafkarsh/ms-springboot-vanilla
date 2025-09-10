@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS ms_schema.domain_event_entry (
   meta_data          BYTEA,
   CONSTRAINT uq_aggregate_seq UNIQUE (aggregate_identifier, sequence_number)
 );
-CREATE INDEX IF NOT EXISTS idx_event_identifier ON domain_event_entry(event_identifier);
-CREATE INDEX IF NOT EXISTS idx_agg_seq ON domain_event_entry(aggregate_identifier, sequence_number);
+CREATE INDEX IF NOT EXISTS idx_event_identifier ON  ms_schema.domain_event_entry(event_identifier);
+CREATE INDEX IF NOT EXISTS idx_agg_seq ON  ms_schema.domain_event_entry(aggregate_identifier, sequence_number);
 
 
 ALTER TABLE ms_schema.domain_event_entry OWNER TO msadm;
