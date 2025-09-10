@@ -31,8 +31,10 @@ import javax.sql.DataSource;
 // Axon
 import org.axonframework.common.jdbc.DataSourceConnectionProvider;
 import org.axonframework.common.transaction.TransactionManager;
-import org.axonframework.eventsourcing.eventstore.EventStorageEngine;
+import org.axonframework.eventsourcing.eventstore.*;
+import org.axonframework.eventsourcing.eventstore.jdbc.LegacyJdbcEventStorageEngine; // <-- AF5 M3 JDBC engine
 import org.axonframework.spring.messaging.unitofwork.SpringTransactionManager;
+
 // Spring
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,23 +50,24 @@ import org.springframework.transaction.PlatformTransactionManager;
 // @Configuration
 public class AxonJdbcConfig {
 
-    // @Bean
-    public TransactionManager axonTransactionManager(PlatformTransactionManager springTxManager) {
-        // Bridges Axon’s transactions to Spring’s PlatformTransactionManager
-        return new SpringTransactionManager(springTxManager);
+    @Bean
+    public TransactionManager axonTransactionManager(PlatformTransactionManager springTx) {
+        return new SpringTransactionManager(springTx);
     }
 
-    /**
     @Bean
-    public EventStorageEngine eventStorageEngine(DataSource dataSource,
-                                                 TransactionManager transactionManager,
-                                                 Serializer serializer) {
-        return JdbcEventStorageEngine.builder()
+    public LegacyEventStorageEngine legacyEventStorageEngine(DataSource dataSource,
+                                                             TransactionManager axonTxManager) {
+        return LegacyJdbcEventStorageEngine.builder()
                 .connectionProvider(new DataSourceConnectionProvider(dataSource))
-                .transactionManager(transactionManager)
-                .eventSerializer(serializer)
-                .snapshotSerializer(serializer)
+                .transactionManager(axonTxManager)
                 .build();
     }
-    */
+
+    @Bean
+    public LegacyEventStore legacyEventStore(LegacyEventStorageEngine storageEngine) {
+        return LegacyEmbeddedEventStore.builder()
+                .storageEngine(storageEngine)
+                .build();
+    }
 }

@@ -449,6 +449,12 @@
 			<version>${axon.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-modelling</artifactId>
+			<version>${axon.version}</version>
+		</dependency>
+
 		<!-- Optional: explicit Spring helpers (usually transitively present via the starter) -->
 		<dependency>
 			<groupId>org.axonframework</groupId>
