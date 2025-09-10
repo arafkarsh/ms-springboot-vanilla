@@ -1,6 +1,6 @@
 #!/bin/sh
 # ============================================================================
 # Export Database 
-# @author: Araf Karsh Hamid, (c) Copyright 2022-24
+# @author: Araf Karsh Hamid, (c) Copyright 2022-25
 # ============================================================================
 pg_dump -U postgres -h localhost -p 5433 -d ms_vanilla_334 -n ms_schema > ms-sb334_new.sql

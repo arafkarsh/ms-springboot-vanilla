@@ -1,12 +1,14 @@
 -- cart_es_view_tx: one row per cart
-CREATE TABLE IF NOT EXISTS cart_es_view_tx (
+CREATE TABLE IF NOT EXISTS ms_schema.cart_es_view_tx (
   cart_id      VARCHAR(64)  PRIMARY KEY,
   checked_out  BOOLEAN      NOT NULL DEFAULT FALSE,
   total        NUMERIC(18,2) NOT NULL DEFAULT 0
 );
 
+ALTER TABLE ms_schema.cart_es_view_tx OWNER TO msadm;
+
 -- cart_es_view_items_tx: items per cart
-CREATE TABLE IF NOT EXISTS cart_es_view_items_tx (
+CREATE TABLE IF NOT EXISTS ms_schema.cart_es_view_items_tx (
   id          BIGSERIAL      PRIMARY KEY,
   cart_id     VARCHAR(64)    NOT NULL,
   product_id  VARCHAR(128)   NOT NULL,
@@ -18,4 +20,6 @@ CREATE TABLE IF NOT EXISTS cart_es_view_items_tx (
       REFERENCES cart_es_view_tx(cart_id) ON DELETE CASCADE
 );
 
-CREATE INDEX IF NOT EXISTS idx_cart_item_cartid ON cart_es_view_items_tx(cart_id);
+ALTER TABLE ms_schema.cart_es_view_items_tx OWNER TO msadm;
+
+CREATE INDEX IF NOT EXISTS idx_cart_item_cartid ON ms_schema.cart_es_view_items_tx(cart_id);
