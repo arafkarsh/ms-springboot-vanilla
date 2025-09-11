@@ -48,6 +48,20 @@ public class CartItemView {
     private BigDecimal unitPrice;
     private BigDecimal lineTotal;
 
+    public CartItemView() {}
+    public CartItemView(String cartId, String productId) {
+        this.cartId = cartId;
+        this.productId = productId;
+    }
+
+    public CartItemView(String cartId, String productId, int quantity, BigDecimal unitPrice) {
+        this.cartId = cartId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.lineTotal = unitPrice.multiply(BigDecimal.valueOf(quantity));
+    }
+
     public Long getId() {
         return id;
     }
@@ -70,5 +84,29 @@ public class CartItemView {
 
     public BigDecimal getLineTotal() {
         return lineTotal;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public void setLineTotal(BigDecimal lineTotal) {
+        this.lineTotal = lineTotal;
     }
 }

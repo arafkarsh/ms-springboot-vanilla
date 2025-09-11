@@ -2,7 +2,7 @@
 # MS-Vanilla Service Properties
 # =======================================================================
 build.number=249
-build.date=Thu Sep 11 14:59:32 IST 2025
+build.date=Thu Sep 11 14:55:33 IST 2025
 # ------------------------------------------------------------------------
 # Spring Profile
 # ------------------------------------------------------------------------
@@ -94,9 +94,8 @@ app.property.map={key1:'val1', key2 : 'val2', key3 : 'val3'}
 # Axon Server Configuration - Disabled for this project
 # ------------------------------------------------------------------------
 # application-*.properties
-axon.axonserver.enabled=false       # Works only with Axon5 M3 release
+axon.axonserver.enabled=false
 axon.server.enabled=false
-axon.eventhandling.processors.cart-projection.mode=tracking
 # turn ON only where you want auto-create
 axon.jdbc.create-schema=true
 # ------------------------------------------------------------------------

@@ -25,57 +25,27 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.entities.cartes;
+package io.fusion.air.microservice.adapters.eventsourced.aggregates;
+// Axon Framework
+import org.axonframework.eventsourcing.EventCountSnapshotTriggerDefinition;
+import org.axonframework.eventsourcing.Snapshotter;
+// Spring Framework
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import jakarta.persistence.Entity;
-
-import java.math.BigDecimal;
-import jakarta.persistence.*;
 /**
- * ms-springboot-vanilla / CartView
+ * ms-springboot-vanilla / SnapshotConfig
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T6:41 PM
+ * @date: 2025-09-11T10:47 AM
  */
-@Entity
-@Table(name = "cart_es_view_tx")
-public class CartView {
-    @Id private String cartId;
-    private boolean checkedOut;
-    private BigDecimal total;
+@Configuration
+public class SnapshotConfig {
 
-    public CartView(String cartId) {
-        this(cartId, false, BigDecimal.ZERO);
-    }
-
-    public CartView(String cartId, boolean checkedOut, BigDecimal total) {
-        this.cartId = cartId;
-        this.checkedOut = checkedOut;
-        this.total = total;
-    }
-
-    public String getCartId() {
-        return cartId;
-    }
-
-    public boolean isCheckedOut() {
-        return checkedOut;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public void setCartId(String cartId) {
-        this.cartId = cartId;
-    }
-
-    public void setCheckedOut(boolean checkedOut) {
-        this.checkedOut = checkedOut;
-    }
-
-    public void setTotal(BigDecimal total) {
-        this.total = total;
+    @Bean
+    public EventCountSnapshotTriggerDefinition cartSnapshotTrigger(Snapshotter snapshotter) {
+        // Take a snapshot every 100 events on a given cart
+        return new EventCountSnapshotTriggerDefinition(snapshotter, 100);
     }
 }

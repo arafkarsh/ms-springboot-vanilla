@@ -40,6 +40,10 @@ import java.math.BigDecimal;
  */
 public class CartCommands {
 
+    public record CreateCartCommand(
+            @TargetAggregateIdentifier String cartId
+    ) {}
+
     public record AddToCartCommand(
             @TargetAggregateIdentifier String cartId,
             String productId,

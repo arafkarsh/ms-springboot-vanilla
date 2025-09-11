@@ -39,18 +39,22 @@ import java.time.Instant;
  */
 public class CartEvents {
 
+    public record CartCreatedEvent(
+            String cartId
+    ) {}
+
     public record ItemAddedToCartEvent(
             String cartId,
             String productId,
-            int quantity,
-            BigDecimal unitPrice
+            int quantity
+            // BigDecimal unitPrice
     ) {}
 
     public record ItemUpdatedInCartEvent(
             String cartId,
             String productId,
-            int quantity,
-            BigDecimal unitPrice
+            int quantity
+            // BigDecimal unitPrice
     ) {}
 
     public record ItemDeletedFromCartEvent(

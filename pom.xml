@@ -70,7 +70,7 @@
 		<redis.embedded.version>0.7.3</redis.embedded.version>
 
 		<!-- Event Sourcing & CQRS - AXON Framework ===================== -->
-		<axon.version>5.0.0-M3</axon.version>
+		<axon.version>5.0.0-M2</axon.version>
 
 		<!-- Security JWT ================================================== -->
 		<jwt.api.version>0.12.6</jwt.api.version>
@@ -434,6 +434,12 @@
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-spring-boot-starter</artifactId>
 			<version>${axon.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.axonframework</groupId>
+					<artifactId>axon-server-connector</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Ensure the Event Sourcing bits (incl. JdbcEventStorageEngine) are on the classpath -->
@@ -459,6 +465,12 @@
 		<dependency>
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-spring</artifactId>
+			<version>${axon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-configuration</artifactId>
 			<version>${axon.version}</version>
 		</dependency>
 
