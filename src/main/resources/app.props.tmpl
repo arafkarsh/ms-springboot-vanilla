@@ -89,9 +89,12 @@ app.property.map={key1:'val1', key2 : 'val2', key3 : 'val3'}
 # Axon Server Configuration - Disabled for this project
 # ------------------------------------------------------------------------
 # application-*.properties
-axon.axonserver.enabled=false       # Works only with Axon5 M3 release
+# Works only with Axon5 M3 release
+axon.axonserver.enabled=false
 axon.server.enabled=false
+axon.axonserver.suppressDownloadMessage=true
 axon.eventhandling.processors.cart-projection.mode=tracking
+logging.level.org.axonframework=DEBUG
 # turn ON only where you want auto-create
 axon.jdbc.create-schema=true
 # ------------------------------------------------------------------------

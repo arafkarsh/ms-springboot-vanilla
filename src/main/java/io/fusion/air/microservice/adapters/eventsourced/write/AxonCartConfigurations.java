@@ -25,27 +25,44 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.adapters.eventsourced.aggregates;
-// Axon Framework
-import org.axonframework.eventsourcing.EventCountSnapshotTriggerDefinition;
-import org.axonframework.eventsourcing.Snapshotter;
-// Spring Framework
+package io.fusion.air.microservice.adapters.eventsourced.write;
+// Axon
+import io.fusion.air.microservice.adapters.eventsourced.write.additem.AddItemToCartConfiguration;
+import io.fusion.air.microservice.adapters.eventsourced.write.checkoutitem.CheckoutConfiguration;
+import io.fusion.air.microservice.adapters.eventsourced.write.createcart.CreateCartConfiguration;
+import io.fusion.air.microservice.adapters.eventsourced.write.deleteitem.DeleteItemFromCartConfiguration;
+import io.fusion.air.microservice.adapters.eventsourced.write.updateitem.UpdateItemToCartConfiguration;
+import org.axonframework.configuration.AxonConfiguration;
+// Spring
+import org.axonframework.eventsourcing.configuration.EventSourcingConfigurer;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+// Custom
+
 
 /**
- * ms-springboot-vanilla / SnapshotConfig
+ * ms-springboot-vanilla / AxonCartConfigurations
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-11T10:47 AM
+ * @date: 2025-09-15T1:22 PM
  */
 @Configuration
-public class SnapshotConfig {
+@ConditionalOnProperty(name = "axon.manual.bootstrap", havingValue = "true")
+public class AxonCartConfigurations {
 
-    @Bean
-    public EventCountSnapshotTriggerDefinition cartSnapshotTrigger(Snapshotter snapshotter) {
-        // Take a snapshot every 100 events on a given cart
-        return new EventCountSnapshotTriggerDefinition(snapshotter, 100);
+    // @Bean(destroyMethod = "shutdown")
+    public AxonConfiguration axonConfiguration() {
+        var c = EventSourcingConfigurer.create();
+
+        c = CreateCartConfiguration.configure(c);
+        c = AddItemToCartConfiguration.configure(c);
+        c = UpdateItemToCartConfiguration.configure(c);
+        c = DeleteItemFromCartConfiguration.configure(c);
+        c = CheckoutConfiguration.configure(c);
+
+        return c.build();
+        // return c.start();
     }
 }

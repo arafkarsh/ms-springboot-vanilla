@@ -70,7 +70,7 @@
 		<redis.embedded.version>0.7.3</redis.embedded.version>
 
 		<!-- Event Sourcing & CQRS - AXON Framework ===================== -->
-		<axon.version>5.0.0-M2</axon.version>
+		<axon.version>5.0.0-M3</axon.version>
 
 		<!-- Security JWT ================================================== -->
 		<jwt.api.version>0.12.6</jwt.api.version>
@@ -442,6 +442,13 @@
 			</exclusions>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.axonframework/axon-spring-boot-autoconfigure -->
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-spring-boot-autoconfigure</artifactId>
+			<version>${axon.version}</version>
+		</dependency>
+
 		<!-- Ensure the Event Sourcing bits (incl. JdbcEventStorageEngine) are on the classpath -->
 		<dependency>
 			<groupId>org.axonframework</groupId>
@@ -467,12 +474,13 @@
 			<artifactId>axon-spring</artifactId>
 			<version>${axon.version}</version>
 		</dependency>
-
+		<!--
 		<dependency>
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-configuration</artifactId>
-			<version>${axon.version}</version>
+			<version>5.0.0-M2</version>
 		</dependency>
+		-->
 
 		<!-- ================================================================= -->
 		<!-- Spring Apache Kafka -->

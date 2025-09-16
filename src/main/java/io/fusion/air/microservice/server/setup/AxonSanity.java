@@ -25,45 +25,27 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.commands;
+package io.fusion.air.microservice.server.setup;
 
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
-
-import java.math.BigDecimal;
+import org.axonframework.commandhandling.CommandBus;
+import org.axonframework.eventsourcing.eventstore.EventStore;
+import org.axonframework.eventhandling.EventBus;
+import org.springframework.stereotype.Component;
 
 /**
- * ms-springboot-vanilla / CartCommands
+ * ms-springboot-vanilla / AxonSanity
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:12 PM
+ * @date: 2025-09-15T2:25 PM
  */
-public class CartCommands {
+@Component
+public class AxonSanity {
 
-    public record CreateCartCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
-
-    public record AddItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
-
-    public record UpdateItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
-
-    public record DeleteItemFromCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId
-    ) {}
-
-    public record CheckoutCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
+    public AxonSanity(EventStore store, CommandBus commands, EventBus events) {
+        System.out.printf("AXON 5 >>>>> EventStore = %s%nCommandBus = %s%nEventBus = %s%n",
+                store.getClass().getName(),
+                commands.getClass().getName(),
+                events.getClass().getName());
+    }
 }

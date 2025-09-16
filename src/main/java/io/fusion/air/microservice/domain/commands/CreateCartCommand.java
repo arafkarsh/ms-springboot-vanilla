@@ -29,41 +29,13 @@ package io.fusion.air.microservice.domain.commands;
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
-import java.math.BigDecimal;
-
 /**
- * ms-springboot-vanilla / CartCommands
+ * ms-springboot-vanilla / CreateCartCommand
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:12 PM
+ * @date: 2025-09-14T10:34 AM
  */
-public class CartCommands {
-
-    public record CreateCartCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
-
-    public record AddItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
-
-    public record UpdateItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
-
-    public record DeleteItemFromCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId
-    ) {}
-
-    public record CheckoutCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
-}
+public record CreateCartCommand(
+        @TargetAggregateIdentifier String cartId
+) {}

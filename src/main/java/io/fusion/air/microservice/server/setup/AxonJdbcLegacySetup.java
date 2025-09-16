@@ -29,11 +29,19 @@ package io.fusion.air.microservice.server.setup;
 // DB
 import javax.sql.DataSource;
 // Axon
-import org.axonframework.common.jdbc.DataSourceConnectionProvider;
+import org.axonframework.common.jdbc.ConnectionProvider;
+// import org.axonframework.common.jdbc.SpringDataSourceConnectionProvider;
+
 import org.axonframework.common.transaction.TransactionManager;
-import org.axonframework.eventsourcing.eventstore.*;
-import org.axonframework.eventsourcing.eventstore.jdbc.LegacyJdbcEventStorageEngine; // <-- AF5 M3 JDBC engine
 import org.axonframework.spring.messaging.unitofwork.SpringTransactionManager;
+
+import org.axonframework.eventsourcing.eventstore.EventStore;
+// import org.axonframework.eventsourcing.eventstore.EmbeddedEventStore;
+// import org.axonframework.eventsourcing.eventstore.jdbc.JdbcEventStorageEngine;
+
+import org.axonframework.eventhandling.tokenstore.TokenStore;
+import org.axonframework.eventhandling.tokenstore.jdbc.JdbcTokenStore;
+
 
 // Spring
 import org.springframework.context.annotation.Bean;
@@ -50,24 +58,39 @@ import org.springframework.transaction.PlatformTransactionManager;
 // @Configuration
 public class AxonJdbcLegacySetup {
 
+    // @Bean
+    public TransactionManager axonTxManager(PlatformTransactionManager ptm) {
+        return new SpringTransactionManager(ptm);
+    }
+
+    /**
     @Bean
-    public TransactionManager axonTransactionManager(PlatformTransactionManager springTx) {
-        return new SpringTransactionManager(springTx);
+    public ConnectionProvider connectionProvider(DataSource ds) {
+        return new SpringDataSourceConnectionProvider(ds);
     }
 
     @Bean
-    public LegacyEventStorageEngine legacyEventStorageEngine(DataSource dataSource,
-                                                             TransactionManager axonTxManager) {
-        return LegacyJdbcEventStorageEngine.builder()
-                .connectionProvider(new DataSourceConnectionProvider(dataSource))
-                .transactionManager(axonTxManager)
+    public JdbcEventStorageEngine storageEngine(ConnectionProvider cp,
+                                                TransactionManager tm) {
+        return JdbcEventStorageEngine.builder()
+                .connectionProvider(cp)
+                .transactionManager(tm)
                 .build();
     }
 
     @Bean
-    public LegacyEventStore legacyEventStore(LegacyEventStorageEngine storageEngine) {
-        return LegacyEmbeddedEventStore.builder()
-                .storageEngine(storageEngine)
+    public EventStore eventStore(JdbcEventStorageEngine engine) {
+        return EmbeddedEventStore.builder()
+                .storageEngine(engine)
                 .build();
     }
+
+    @Bean
+    public TokenStore tokenStore(ConnectionProvider cp, TransactionManager tm) {
+        return JdbcTokenStore.builder()
+                .connectionProvider(cp)
+                // .transactionManager(tm)
+                .build();
+    }
+    */
 }

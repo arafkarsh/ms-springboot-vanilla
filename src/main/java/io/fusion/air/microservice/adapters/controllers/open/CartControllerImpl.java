@@ -59,9 +59,9 @@ import static org.slf4j.LoggerFactory.getLogger;
 @Validated // This enables validation for method parameters
 @RestController
 // "/ms-vanilla/api/v1"
-@RequestMapping("${service.api.path}/cartes")
-@MetricsPath(name = "fusion.air.cartes")
-@Tag(name = "CartItem API", description = "CRUD Operations for CartItem, CartItem Items, Add to CartItem, Delete item...")
+@RequestMapping("${service.api.path}/cart")
+@MetricsPath(name = "fusion.air.cart")
+@Tag(name = "Cart-CRUD API", description = "CRUD Operations for Create Cart, CartItem, Add to Cart, Update, Delete item, & Fetch Cart..")
 public class CartControllerImpl extends AbstractController {
 
 	// Set Logger -> Lookup will automatically determine the class name.

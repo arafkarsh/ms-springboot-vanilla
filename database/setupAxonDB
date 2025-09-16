@@ -4,4 +4,4 @@
 # @author: Araf Karsh Hamid, (c) Copyright 2022-25
 # ============================================================================
 psql -h localhost -p 5433 ms_vanilla_334 < es.sql
-psql -h localhost -p 5433 ms_vanilla_334 < es-axon-mss.sql
+#psql -h localhost -p 5433 ms_vanilla_334 < es-axon-mss.sql

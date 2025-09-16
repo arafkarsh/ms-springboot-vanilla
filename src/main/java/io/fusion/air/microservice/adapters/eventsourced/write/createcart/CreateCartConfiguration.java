@@ -25,45 +25,40 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.commands;
-
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
-
-import java.math.BigDecimal;
+package io.fusion.air.microservice.adapters.eventsourced.write.createcart;
+// Axon Framework
+import org.axonframework.commandhandling.configuration.CommandHandlingModule;
+import org.axonframework.eventsourcing.configuration.EventSourcedEntityModule;
+import org.axonframework.eventsourcing.configuration.EventSourcingConfigurer;
+// Spring Framework
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * ms-springboot-vanilla / CartCommands
+ * ms-springboot-vanilla / CreateCartConfiguration
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:12 PM
+ * @date: 2025-09-14T11:15 PM
  */
-public class CartCommands {
+@Configuration
+public class CreateCartConfiguration {
 
-    public record CreateCartCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
+    public static EventSourcingConfigurer configure(EventSourcingConfigurer configurer) {
+        var stateEntity = EventSourcedEntityModule
+                .annotated(String.class, CreateCartCommandHandler.State.class);
 
-    public record AddItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
+        var commandHandlingModule = CommandHandlingModule
+                .named("CreateCart")
+                .commandHandlers()
+                .annotatedCommandHandlingComponent(c -> new CreateCartCommandHandler());
+        return configurer
+                .registerEntity(stateEntity)
+                .registerCommandHandlingModule(commandHandlingModule);
+    }
 
-    public record UpdateItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
-
-    public record DeleteItemFromCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId
-    ) {}
-
-    public record CheckoutCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
+    @Bean
+    public EventSourcedEntityModule createCartStateModule() {
+        return EventSourcedEntityModule.annotated(String.class, CreateCartCommandHandler.State.class);
+    }
 }

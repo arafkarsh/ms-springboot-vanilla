@@ -25,45 +25,41 @@
  * under the terms of the Apache 2 License version 2.0
  * as published by the Apache Software Foundation.
  */
-package io.fusion.air.microservice.domain.commands;
-
-import org.axonframework.modelling.command.TargetAggregateIdentifier;
-
-import java.math.BigDecimal;
+package io.fusion.air.microservice.adapters.eventsourced.write.additem;
+// Axon Framework
+import org.axonframework.commandhandling.configuration.CommandHandlingModule;
+import org.axonframework.eventsourcing.configuration.EventSourcedEntityModule;
+import org.axonframework.eventsourcing.configuration.EventSourcingConfigurer;
+// Spring Framework
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
- * ms-springboot-vanilla / CartCommands
+ * ms-springboot--vanilla / AddItemToCartConfiguration
  *
  * @author: Araf Karsh Hamid
  * @version: 0.1
- * @date: 2025-09-10T2:12 PM
+ * @date: 2025-09-15T1:07 PM
  */
-public class CartCommands {
+@Configuration
+public class AddItemToCartConfiguration {
 
-    public record CreateCartCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
+    public static EventSourcingConfigurer configure(EventSourcingConfigurer configurer) {
+        var stateEntity = EventSourcedEntityModule
+                .annotated(String.class, AddItemToCartCommandHandler.State.class);
 
-    public record AddItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
+        var commandHandlingModule = CommandHandlingModule
+                .named("AddItemToCart")
+                .commandHandlers()
+                .annotatedCommandHandlingComponent(c -> new AddItemToCartCommandHandler());
 
-    public record UpdateItemToCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId,
-            int quantity,
-            BigDecimal unitPrice
-    ) {}
+        return configurer
+                .registerEntity(stateEntity)
+                .registerCommandHandlingModule(commandHandlingModule);
+    }
 
-    public record DeleteItemFromCartCommand(
-            @TargetAggregateIdentifier String cartId,
-            String productId
-    ) {}
-
-    public record CheckoutCommand(
-            @TargetAggregateIdentifier String cartId
-    ) {}
+    @Bean
+    public EventSourcedEntityModule addItemStateModule() {
+        return EventSourcedEntityModule.annotated(String.class, AddItemToCartCommandHandler.State.class);
+    }
 }

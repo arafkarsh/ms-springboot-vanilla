@@ -27,6 +27,8 @@
  */
 package io.fusion.air.microservice.domain.events;
 
+import org.axonframework.eventsourcing.annotations.EventTag;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -40,30 +42,30 @@ import java.time.Instant;
 public class CartEvents {
 
     public record CartCreatedEvent(
-            String cartId
+            @EventTag String cartId
     ) {}
 
     public record ItemAddedToCartEvent(
-            String cartId,
+            @EventTag String cartId,
             String productId,
             int quantity
             // BigDecimal unitPrice
     ) {}
 
     public record ItemUpdatedInCartEvent(
-            String cartId,
+            @EventTag String cartId,
             String productId,
             int quantity
             // BigDecimal unitPrice
     ) {}
 
     public record ItemDeletedFromCartEvent(
-            String cartId,
+            @EventTag String cartId,
             String productId
     ) {}
 
     public record CartCheckedOutEvent(
-            String cartId,
+            @EventTag String cartId,
             Instant when
     ) {}
 }
